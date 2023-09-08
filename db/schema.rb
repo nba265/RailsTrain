@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_230_907_100_830) do
+ActiveRecord::Schema[7.0].define(version: 20_230_908_063_106) do
   create_table 'coupons', charset: 'utf8mb4', collation: 'utf8mb4_0900_ai_ci', force: :cascade do |t|
     t.string 'name'
     t.integer 'price'
@@ -50,7 +50,16 @@ ActiveRecord::Schema[7.0].define(version: 20_230_907_100_830) do
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.integer 'total'
+    t.text 'info'
     t.index ['customer_id'], name: 'index_payments_on_customer_id'
+  end
+
+  create_table 'products', charset: 'utf8mb4', collation: 'utf8mb4_0900_ai_ci', force: :cascade do |t|
+    t.string 'name'
+    t.decimal 'price', precision: 10
+    t.string 'type'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
   create_table 'timeprices', charset: 'utf8mb4', collation: 'utf8mb4_0900_ai_ci', force: :cascade do |t|
